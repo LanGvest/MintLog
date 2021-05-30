@@ -1,0 +1,139 @@
+:root {
+	--color-primary: rgb(14, 212, 88);
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	color: white;
+}
+
+#__next {
+	display: flex;
+	height: 100vh;
+	width: 100vw;
+	background-color: #2a2a2a;
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+
+}
+
+.hint {
+	color: #8b8b8b;
+	font-size: 15px;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.logo svg {
+	width: 32px;
+	margin-left: 6px;
+}
+
+.logo p {
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.logo p span {
+	color: var(--color-primary);
+}
+
+aside {
+	background-color: #313131;
+	width: 350px;
+	height: 100%;
+	border-right: 1px solid #494949;
+}
+
+main {
+	padding: 30px;
+	flex: 1;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+hr {
+	height: 1px;
+	outline: none;
+	border: none;
+	border-bottom: 1px solid #3e3e3e;
+	width: 100%;
+	margin: 20px 0;
+}
+
+.route {
+	border-top: 1px solid #3e3e3e;
+	padding: 6px 6px 6px 12px;
+	font-size: 17px;
+	text-decoration: none;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.route {
+	transition: background-color 100ms;
+}
+
+.route svg {
+	transition: fill 100ms;
+}
+
+.route:hover {
+	background-color: rgba(255, 255, 255, 0.05);
+}
+
+.route svg {
+	width: 28px;
+	fill: #6c6c6c;
+}
+
+.route:hover svg, .route:active svg {
+	fill: white;
+}
+
+.route:active {
+	background-color: var(--color-primary);
+}
+
+.madeBy {
+	font-size: 15px;
+	text-align: center;
+	margin-top: 20px;
+	color: #8b8b8b;
+}
+
+.madeBy span {
+	color: var(--color-primary);
+}
+
+.toolBar {
+	display: flex;
+	align-items: center;
+}
+
+.toolBar svg {
+	width: 30px;
+	margin-left: 12px;
+	fill: white;
+	cursor: pointer;
+	transform: none;
+	transition: fill 100ms, transform 100ms;
+}
+
+.toolBar svg:hover {
+	fill: var(--color-primary);
+}
+
+.toolBar svg:active {
+	transform: scale(0.9);
+}
