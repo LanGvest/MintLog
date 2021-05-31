@@ -101,24 +101,28 @@ export default function SideBar({title, children, keyPath = null}) {
 						link.click();
 					}}/>
 					<Icon title={`Отправить ${keyPath||"summary"}.json на сервер`} path={mdiCloudUpload} color="inherit" onClick={() => {
-						fetch(location.origin + "/api/saveFile", {
-							method: "POST",
-							body: JSON.stringify({
-								fileName: `${keyPath||"summary"}.json`,
-								content: JSON.stringify(keyPath ? CommonReducer.getData().data[keyPath] : CommonReducer.getData().data, null, 4)
+						if(process.env.NODE_ENV === "production") {
+							alert("[ERROR]: Эта возможность доступна только разработчикам!");
+						} else {
+							fetch(location.origin + "/api/saveFile", {
+								method: "POST",
+								body: JSON.stringify({
+									fileName: `${keyPath||"summary"}.json`,
+									content: JSON.stringify(keyPath ? CommonReducer.getData().data[keyPath] : CommonReducer.getData().data, null, 4)
+								})
+							}).then(res => {
+								if(res.ok) {
+									alert("[OK]: Файл успешно сохранён на сервере!");
+								} else {
+									alert("[ERROR]: Не удалось сохранить файл на сервере!");
+								}
 							})
-						}).then(res => {
-							if(res.ok) {
-								alert("Файл успешно сохранён на сервере.");
-							} else {
-								alert("Не удалось сохранить файл на сервере!");
-							}
-						})
+						}
 					}}/>
 				</div>
 				<hr/>
 				{children}
-				<p className="madeBy">Разработчики: Lahvinets Viachaslau & Katsiaryna Mironenka</p>
+				<p className="madeBy">MintLog: Логвинец Вячеслав & Мироненко Екатерина</p>
 			</main>
 		</>
 	)

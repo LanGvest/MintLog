@@ -40,6 +40,7 @@
 .logo p {
 	font-size: 30px;
 	font-weight: bold;
+	user-select: none;
 }
 
 .logo p span {
@@ -136,4 +137,32 @@ hr {
 
 .toolBar svg:active {
 	transform: scale(0.9);
+}
+
+.mainCenter {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+}
+
+.center {
+	height: 94vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.bigLogo {
+	transform: scale(1.7);
+	margin-top: 3vh;
+}
+
+.bottom {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100vw;
+	height: 6vh;
 }

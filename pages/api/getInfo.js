@@ -7,7 +7,6 @@ let CACHE = null;
 
 export default (req, res) => {
 	let t = new Date().getTime();
-	console.log(CACHE)
 	if(CACHE) return res.status(200).json({
 		data: CACHE,
 		time: new Date().getTime()-t

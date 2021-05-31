@@ -19,6 +19,7 @@
 		"node-wmi": "^0.0.5",
 		"react": "17.0.2",
 		"react-dom": "17.0.2",
+		"react-spinners-kit": "^1.9.1",
 		"systeminformation": "^5.7.4"
 	}
 }
