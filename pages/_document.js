@@ -12,6 +12,22 @@ export default class MintLogDocument extends Document {
 				<Head>
 					<link rel="icon" href={"favicon.ico"}/>
 					<title>MintLog</title>
+					<meta httpEquiv="Content-type" content="text/html;charset=UTF-8"/>
+					<meta charSet="UTF-8"/>
+					<meta name="viewport" content="width=device-width"/>
+					<meta name="format-detection" content="telephone=no"/>
+					<meta name="description" content="Сбор характеристик об операционной системе и аппаратном обеспечении."/>
+					<meta property="og:locale" content="ru_RU"/>
+					<meta property="og:type" content="article"/>
+					<meta property="og:title" content="MintLog"/>
+					<meta property="og:description" content="сбор характеристик об операционной системе и аппаратном обеспечении"/>
+					<meta property="og:image" content="preview.png"/>
+					<meta property="og:site_name" content="MintLog"/>
+					<meta name="twitter:card" content="summary"/>
+					<meta name="twitter:site" content="MintLog"/>
+					<meta name="twitter:title" content="MintLog"/>
+					<meta name="twitter:description" content="сбор характеристик об операционной системе и аппаратном обеспечении"/>
+					<meta name="twitter:image" content="preview.png"/>
 				</Head>
 				<body>
 					<Main/>
