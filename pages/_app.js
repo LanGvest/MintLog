@@ -11,10 +11,10 @@ export default function MintLog({Component, pageProps}) {
 		(async () => {
 			Promise.all([
 				new Promise(async resolve => {
-					resolve(await (await fetch(location.origin + "/api/getInfo")).json());
+					resolve(await (await fetch(location.origin + (location.hostname !== "localhost" ? "/demo.json" : "/api/getInfo"))).json());
 				}),
 				new Promise(resolve => {
-					setTimeout(resolve, 2000);
+					setTimeout(resolve, 3000);
 				})
 			]).then(set => {
 				CommonReducer.setData(set[0]);
@@ -29,7 +29,6 @@ export default function MintLog({Component, pageProps}) {
 					<p><span>Mint</span>Log</p>
 					<Icon path={mdiLeaf} color="var(--color-primary)"/>
 				</div>
-
 			</div>
 			<div className="bottom">
 				<CircleSpinner size={15}/>

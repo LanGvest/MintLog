@@ -92,7 +92,7 @@ export default function SideBar({title, children, keyPath = null}) {
 			</aside>
 			<main>
 				<div className="toolBar">
-					<h1 style={{flex: 1}}>{title||"MintLog"}</h1>
+					<h1 style={{flex: 1}}>{title||"MintLog"}{location.hostname !== "localhost" && <span className="demo">DEMO</span>}</h1>
 					<Icon title={`Скачать ${keyPath||"summary"}.json`} path={mdiFileDownload} color="inherit" onClick={() => {
 						let blob = new Blob([JSON.stringify(keyPath ? CommonReducer.getData().data[keyPath] : CommonReducer.getData().data, null, 4)], {type: "text/plain"});
 						let link = document.createElement("a");
@@ -101,7 +101,7 @@ export default function SideBar({title, children, keyPath = null}) {
 						link.click();
 					}}/>
 					<Icon title={`Отправить ${keyPath||"summary"}.json на сервер`} path={mdiCloudUpload} color="inherit" onClick={() => {
-						if(process.env.NODE_ENV === "production") {
+						if(location.hostname !== "localhost") {
 							alert("[ERROR]: Эта возможность доступна только разработчикам!");
 						} else {
 							fetch(location.origin + "/api/saveFile", {
