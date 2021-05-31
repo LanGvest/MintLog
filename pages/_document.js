@@ -10,7 +10,7 @@ export default class MintLogDocument extends Document {
 		return (
 			<Html>
 				<Head>
-					<link rel="shortcut icon" href={"/favicon.ico"}/>
+					<link rel="icon" href={"favicon.ico"}/>
 					<title>MintLog</title>
 				</Head>
 				<body>
