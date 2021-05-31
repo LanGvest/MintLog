@@ -101,7 +101,7 @@ export default function SideBar({title, children, keyPath = null}) {
 						link.click();
 					}}/>
 					<Icon title={`Отправить ${keyPath||"summary"}.json на сервер`} path={mdiCloudUpload} color="inherit" onClick={() => {
-						fetch("http://localhost:3000/api/saveFile", {
+						fetch(location.origin + "/api/saveFile", {
 							method: "POST",
 							body: JSON.stringify({
 								fileName: `${keyPath||"summary"}.json`,

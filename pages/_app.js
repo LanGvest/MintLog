@@ -10,7 +10,9 @@ export default function MintLog({Component, pageProps}) {
 MintLog.getInitialProps = async appContext => {
 	const appProps = await App.getInitialProps(appContext);
 	let response = CommonReducer.getData();
-	if(!response) response = await (await fetch("http://localhost:3000/api/getInfo")).json();
+	try {
+		if(!response) response = await (await fetch("https://course-work-delta.vercel.app/api/getInfo")).json();
+	} catch {}
 	return {
 		...appProps,
 		pageProps: {response}
