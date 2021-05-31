@@ -29,7 +29,7 @@ export default function MintLog({Component, pageProps}) {
 				</div>
 			</div>
 			<div className="bottom">
-				<CircleSpinner size={15}/>
+				<CircleSpinner size={14}/>
 				<p style={{marginLeft: "12px", marginTop: "2px"}}>Collecting device data...</p>
 			</div>
 		</div>
