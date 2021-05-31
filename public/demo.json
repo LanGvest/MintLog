@@ -10,6 +10,28 @@
                 "shell": null
             }
         ],
+        "videoControllers": [
+            {
+                "vendor": "NVIDIA",
+                "model": "NVIDIA GeForce XXXX",
+                "bus": "PCI",
+                "vram": 4096,
+                "vramDynamic": false,
+                "subDeviceId": "XXXX",
+                "driverVersion": "XXXX",
+                "name": "GeForce XXXX",
+                "pciBus": "XXXX",
+                "memoryTotal": 4000,
+                "memoryUsed": 530,
+                "memoryFree": 3500,
+                "utilizationGpu": 5,
+                "utilizationMemory": 5,
+                "temperatureGpu": 33,
+                "powerLimit": 90,
+                "clockCore": 139,
+                "clockMemory": 405
+            }
+        ],
         "network": [
             {
                 "iface": "Ethernet",
@@ -107,6 +129,26 @@
             "SystemCreationClassName": "Win32_ComputerSystem",
             "SystemName": "XXXX"
         },
+        "displays": [
+            {
+                "vendor": "BenQ Inc.",
+                "model": "BenQ XXXX",
+                "deviceName": "\\\\.\\DISPLAY1",
+                "main": true,
+                "builtin": false,
+                "connection": "HDMI",
+                "resolutionX": 1920,
+                "resolutionY": 1080,
+                "sizeX": 48,
+                "sizeY": 27,
+                "pixelDepth": 32,
+                "currentResX": 1536,
+                "currentResY": 864,
+                "positionX": 0,
+                "positionY": 0,
+                "currentRefreshRate": 60
+            }
+        ],
         "fileSystem": [
             {
                 "fs": "C:",
@@ -216,6 +258,65 @@
                 "command": "XXXX",
                 "path": "",
                 "params": ""
+            }
+        ],
+        "disks": [
+            {
+                "device": "SCSI\\DISKXXXX",
+                "type": "HD",
+                "name": "WDC XXXX",
+                "vendor": "Western Digital",
+                "size": 100000000000000,
+                "bytesPerSector": 512,
+                "totalCylinders": 121000,
+                "totalHeads": 255,
+                "totalSectors": 19530000,
+                "totalTracks": 3100000,
+                "tracksPerCylinder": 255,
+                "sectorsPerTrack": 63,
+                "firmwareRevision": "XX.XXXXX",
+                "serialNum": "XXXX",
+                "interfaceType": "SATA",
+                "smartStatus": "Ok",
+                "temperature": null
+            },
+            {
+                "device": "USBSTOR\\DISKXXXX",
+                "type": "HD",
+                "name": "Kingston DataTraveler 3.0 USB Device",
+                "vendor": "Kingston Technonogy",
+                "size": 30000000,
+                "bytesPerSector": 512,
+                "totalCylinders": 3762,
+                "totalHeads": 255,
+                "totalSectors": 60000000,
+                "totalTracks": 9500000,
+                "tracksPerCylinder": 255,
+                "sectorsPerTrack": 63,
+                "firmwareRevision": "",
+                "serialNum": "0",
+                "interfaceType": "USB",
+                "smartStatus": "Ok",
+                "temperature": null
+            },
+            {
+                "device": "SCSI\\DISKXXXX",
+                "type": "SSD",
+                "name": "Apacer AS340 480GB",
+                "vendor": "",
+                "size": 4801000000,
+                "bytesPerSector": 512,
+                "totalCylinders": 58369,
+                "totalHeads": 255,
+                "totalSectors": 93700000,
+                "totalTracks": 14800000,
+                "tracksPerCylinder": 255,
+                "sectorsPerTrack": 63,
+                "firmwareRevision": "XXXX",
+                "serialNum": "XXXX",
+                "interfaceType": "SATA",
+                "smartStatus": "Ok",
+                "temperature": null
             }
         ],
         "cpu": {
