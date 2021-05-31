@@ -6,7 +6,7 @@ import CommonReducer from "../../modules/common";
 
 const routes = [
 	{
-		title: "Полная информация",
+		title: "Summary",
 		href: "/"
 	},
 	{
@@ -14,55 +14,55 @@ const routes = [
 		href: "/bios"
 	},
 	{
-		title: "Системная плата",
+		title: "Baseboard",
 		href: "/baseboard"
 	},
 	{
-		title: "Центральный процессор",
+		title: "CPU",
 		href: "/cpu"
 	},
 	{
-		title: "Видеоадаптеры",
+		title: "Video controllers",
 		href: "/videoControllers"
 	},
 	{
-		title: "Внешние накопители",
+		title: "Disks",
 		href: "/disks"
 	},
 	{
-		title: "Разделы файловой системы",
+		title: "File system",
 		href: "/fileSystem"
 	},
 	{
-		title: "Мониторы",
+		title: "Displays",
 		href: "/displays"
 	},
 	{
-		title: "Клавиатура",
+		title: "Keyboard",
 		href: "/keyboard"
 	},
 	{
-		title: "Мышь",
+		title: "Mouse",
 		href: "/mouse"
 	},
 	{
-		title: "Сетевые адаптеры",
+		title: "Network",
 		href: "/network"
 	},
 	{
-		title: "Длительность текущей сессии",
+		title: "Logon session",
 		href: "/session"
 	},
 	{
-		title: "Время непрерывной работы",
+		title: "Uptime",
 		href: "/uptime"
 	},
 	{
-		title: "Пользователи",
+		title: "Users",
 		href: "/users"
 	},
 	{
-		title: "Процессы",
+		title: "Processes",
 		href: "/processes"
 	}
 ]
@@ -88,21 +88,21 @@ export default function SideBar({title, children, keyPath = null}) {
 						</Link>
 					))
 				}
-				<p className="hint">Данные были получены за {~~(CommonReducer.getData().time/1000)} сек.</p>
+				<p className="hint">Data was collected in {!(~~(CommonReducer.getData().time/1000)) ? `${CommonReducer.getData().time}ms` : `${~~(CommonReducer.getData().time/1000)}s`}</p>
 			</aside>
 			<main>
 				<div className="toolBar">
 					<h1 style={{flex: 1}}>{title||"MintLog"}{location.hostname !== "localhost" && <span className="demo">DEMO</span>}</h1>
-					<Icon title={`Скачать ${keyPath||"summary"}.json`} path={mdiFileDownload} color="inherit" onClick={() => {
+					<Icon title={`Download ${keyPath||"summary"}.json`} path={mdiFileDownload} color="inherit" onClick={() => {
 						let blob = new Blob([JSON.stringify(keyPath ? CommonReducer.getData().data[keyPath] : CommonReducer.getData().data, null, 4)], {type: "text/plain"});
 						let link = document.createElement("a");
 						link.setAttribute("href", URL.createObjectURL(blob));
 						link.setAttribute("download", `${keyPath||"summary"}.json`);
 						link.click();
 					}}/>
-					<Icon title={`Отправить ${keyPath||"summary"}.json на сервер`} path={mdiCloudUpload} color="inherit" onClick={() => {
+					<Icon title={`Send ${keyPath||"summary"}.json on the server`} path={mdiCloudUpload} color="inherit" onClick={() => {
 						if(location.hostname !== "localhost") {
-							alert("[ERROR]: Эта возможность доступна только разработчикам!");
+							alert("[ERROR]: This feature is only available to developers!");
 						} else {
 							fetch(location.origin + "/api/saveFile", {
 								method: "POST",
@@ -112,9 +112,9 @@ export default function SideBar({title, children, keyPath = null}) {
 								})
 							}).then(res => {
 								if(res.ok) {
-									alert("[OK]: Файл успешно сохранён на сервере!");
+									alert("[OK]: The file was successfully saved on the server!");
 								} else {
-									alert("[ERROR]: Не удалось сохранить файл на сервере!");
+									alert("[ERROR]: Failed to save the file on the server!");
 								}
 							})
 						}
@@ -122,7 +122,7 @@ export default function SideBar({title, children, keyPath = null}) {
 				</div>
 				<hr/>
 				{children}
-				<p className="madeBy">MintLog: Логвинец Вячеслав & Мироненко Екатерина</p>
+				<p className="madeBy">Made by Lahvinets Viachaslau & Mironenka Katsiaryna</p>
 			</main>
 		</>
 	)

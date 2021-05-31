@@ -3,7 +3,7 @@ import CommonReducer from "../modules/common";
 import ViewJSON from "../components/viewJSON/viewJSON";
 
 export default () => {
-	let title = "Мониторы";
+	let title = "Displays";
 	return (
 		<SideBar title={title} keyPath="displays">
 			<ViewJSON object={CommonReducer.getData().data.displays} title={title}/>

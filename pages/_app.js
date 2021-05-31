@@ -8,19 +8,17 @@ import {CircleSpinner} from "react-spinners-kit";
 export default function MintLog({Component, pageProps}) {
 	const [isData, setIsData] = useState(false);
 	useEffect(() => {
-		(async () => {
-			Promise.all([
-				new Promise(async resolve => {
-					resolve(await (await fetch(location.origin + (location.hostname !== "localhost" ? "/demo.json" : "/api/getInfo"))).json());
-				}),
-				new Promise(resolve => {
-					setTimeout(resolve, 3000);
-				})
-			]).then(set => {
-				CommonReducer.setData(set[0]);
-				setIsData(() => true);
+		Promise.all([
+			new Promise(async resolve => {
+				resolve(await (await fetch(location.origin + (location.hostname !== "localhost" ? "/demo.json" : "/api/getInfo"))).json());
+			}),
+			new Promise(resolve => {
+				setTimeout(resolve, 3000);
 			})
-		})()
+		]).then(set => {
+			CommonReducer.setData(set[0]);
+			setIsData(() => true);
+		})
 	}, [])
 	return isData ? <Component {...pageProps}/> : (
 		<div className="mainCenter">
@@ -32,7 +30,7 @@ export default function MintLog({Component, pageProps}) {
 			</div>
 			<div className="bottom">
 				<CircleSpinner size={15}/>
-				<p style={{marginLeft: "12px", marginTop: "2px"}}>Сбор данных об устройстве...</p>
+				<p style={{marginLeft: "12px", marginTop: "2px"}}>Collecting device data...</p>
 			</div>
 		</div>
 	)

@@ -3,7 +3,7 @@ import CommonReducer from "../modules/common";
 import ViewJSON from "../components/viewJSON/viewJSON";
 
 export default () => {
-	let title = "Длительность текущей сессии";
+	let title = "Logon session";
 	return (
 		<SideBar title={title} keyPath="logonSession">
 			<ViewJSON object={CommonReducer.getData().data.logonSession} title={title}/>
